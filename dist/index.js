@@ -887,7 +887,7 @@ function userShell() {
     const { env } = process;
     const platform = getPlatform();
     if (platform == constants_1.WINDOWS) {
-        return 'cmd.exe -/c';
+        return 'cmd.exe /c';
     }
     try {
         const shell = (0, os_1.userInfo)();
