@@ -128,7 +128,7 @@ function run() {
             core.info(`Input Commands: ${command}`);
             const codesigner = new codesigner_1.CodeSigner();
             const execCommand = yield codesigner.setup();
-            command = `${execCommand} sign -help`; // ${command}`;
+            command = `${execCommand} ${command}`;
             core.info(`CodeSigner Command: ${command}`);
             const javaVersion = parseInt((_a = process.env['JAVA_VERSION']) !== null && _a !== void 0 ? _a : '0');
             const javaHome = (_b = process.env['JAVA_HOME']) !== null && _b !== void 0 ? _b : '';
