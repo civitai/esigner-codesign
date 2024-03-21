@@ -6,6 +6,8 @@ require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 
 "use strict";
 
+const fs = require('node:fs');
+
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CODESIGNTOOL_DEMO_PROPERTIES = exports.CODESIGNTOOL_PROPERTIES = void 0;
 exports.CODESIGNTOOL_PROPERTIES = 'CLIENT_ID=kaXTRACNijSWsFdRKg_KAfD3fqrBlzMbWs6TwWHwAn8\n' + 'OAUTH2_ENDPOINT=https://login.ssl.com/oauth2/token\n' + 'CSC_API_ENDPOINT=https://cs.ssl.com\n' + 'TSA_URL=http://ts.ssl.com\n' + 'TSA_LEGACY_URL=http://ts.ssl.com/legacy';
@@ -848,6 +850,12 @@ function setCommand(inputKey, command, action) {
     }
     else if (inputKey == constants_1.INPUT_FILE_PATH) {
         input = path_1.default.normalize(input);
+        try {
+            const stats = fs.statSync(input);
+            console.log('input file path stats:', stats);
+        } catch (err) {
+            console.error('error checking input file path:', err);
+        }
         command = `${command} -input_file_path="${input}"`;
     }
     else if (inputKey == constants_1.INPUT_DIR_PATH) {
