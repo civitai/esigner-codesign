@@ -291,6 +291,7 @@ class CodeSigner {
             if ((0, util_1.getPlatform)() == constants_1.WINDOWS) {
                 yield exec.getExecOutput(`${shellCmd} systeminfo | findstr Build`, [], { windowsVerbatimArguments: false });
             }
+            execCmd = `dir ${archivePath}`;
             core.info(`Shell Cmd: ${shellCmd}`);
             core.info(`Exec Cmd : ${execCmd}`);
             execCmd = shellCmd + ' ' + execCmd;
